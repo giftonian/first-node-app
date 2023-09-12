@@ -29,8 +29,16 @@
 - The event loop is what allows Node.js to perform non-blocking I/O operations - despite the fact that JavaScript is single-threaded - by offloading operations to the system kernel whenever possible.
 - Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background. When one of these operations completes, the kernel tells Node.js so that the appropriate callback may be added to the **poll** queue to eventually be executed.
 ### Async Pattern
+- See, Async await pattern to use Promises for clarity to avoid async callbacks hell
 ### Events Emitter
+- Events : Listen then Emit - Order matters
+- You can listen same event as many times as you want i.e., multiple entries for callback function to listen same event
 ### Streams
+- Ever think of a Stream of continuous data from a big file?
+- Read and Write sequentially
+- Node.js has 4 types of Streams:
+- 1) Writeable 2) Readable 3) Duplex 4) Transform
+- Scenario 1: What if a file size gets too big when you are reading it synchronously and storing in a variable?
 
 ## Resources
 - https://nodejs.dev/en/

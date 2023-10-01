@@ -40,6 +40,12 @@
 - 1) Writeable 2) Readable 3) Duplex 4) Transform
 - Scenario 1: What if a file size gets too big when you are reading it synchronously and storing in a variable?
 
+### HTTP
+- HTTP message need a blank line right after Headers info in the message to indicate that all META information has been sent/written before this blank line. Remeber? `Headers Already Sent` error in PHP web application?
+
+
+### Express
+- Express is built on top of Node.js, specifically on `http` module
 ## Resources
 - https://nodejs.dev/en/
 - http://course-api.com/

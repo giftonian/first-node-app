@@ -46,6 +46,8 @@
 
 ### Express
 - Express is built on top of Node.js, specifically on `http` module
+- loading static files in Express `app.use(express.static('./public'))`
+
 ## Resources
 - https://nodejs.dev/en/
 - http://course-api.com/

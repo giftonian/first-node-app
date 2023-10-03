@@ -1,52 +1,27 @@
-const http = require('http');
-const {readFileSync} = require('fs');
+const express = require('express');
+const app = express()
+const path = require('path')
+// Remember few important functions
+// app.get
+// app.post
+// app.put
+// app.delete
 
-// get all files
-//const homePage = readFileSync('./index.html') // Remember, this will be called only once at the time of Server Run/Create, not for every request
-const homePage = readFileSync('./navbar-app/index.html')
-const homeStyles = readFileSync('./navbar-app/styles.css')
-const homeImage = readFileSync('./navbar-app/logo.svg')
-const homeLogic = readFileSync('./navbar-app/browser-app.js')
+// app.all - handles all types of requests(get/post/put/delete)
+// app.use - sort of Middleware in express app
+// app.listen
 
-const server = http.createServer( (req, res)=> {
+app.use(express.static('./public')) //serving everything(including index file) as static assets
 
-    console.log('user sent the request');
+
+app.get('/about', (req, res) => {
     
-    //res.write('<h1>welcome user</h1>');
-
-    const url = req.url;
-    
-    if (url === '/') { // home page request
-        res.writeHead(200, {'content-type': 'text/html'})
-        //res.write('welcome to our Node.JS Server home page')        
-        res.write(homePage)        
-    } else if (url === '/about') {
-        res.writeHead(200, {'content-type': 'text/html'})
-        res.write('<h1>About Us page</h1>')
-    } 
-    else if (url === '/styles.css') {
-        res.writeHead(200, {'content-type': 'text/css'})
-        res.write(homeStyles)
-    } 
-    else if (url === '/logo.svg') {
-        res.writeHead(200, {'content-type': 'image/svg+xml'})
-        res.write(homeImage)
-    } 
-    else if (url === '/browser-app.js') {
-        res.writeHead(200, {'content-type': 'text/javascript'})
-        res.write(homeLogic)
-    } 
-    
-    else {
-    //console.log(req)    
-    res.writeHead(404, {'content-type': 'text/html'})
-    res.write(`
-    <h1>Oops!</h1>
-    <h2>The resource you are looking for doen't exist</h2>
-    `)
-    }
-
-    res.end()
 })
 
-server.listen(5000)
+app.all('*', (req, res) => {
+    res.status(404).send('<h2>Resource not found</h2>'); //method chaining
+})
+
+app.listen(5000, () => {
+    console.log('server is listening at port 5000')
+})

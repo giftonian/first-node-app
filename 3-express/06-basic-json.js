@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
-const { products } = require('./data')
+const { products } = require('./data') // data.js is exporting products and people data
 app.get('/', (req, res) => {
-  res.json(products)
+    //res.json([{name: 'Ahmad'}, {name: 'Waqas'}])
+    res.json(products)
 })
 
 app.listen(5000, () => {

@@ -7,7 +7,7 @@ const authorize = require('./authorize')
 
 // app.use([logger, authorize])
 // app.use(express.static('./public'))
-app.use(morgan('tiny'))
+app.use(morgan('tiny')) // 'tiny' for basic setup of logging
 
 app.get('/', (req, res) => {
   res.send('Home')

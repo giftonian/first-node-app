@@ -11,6 +11,7 @@ const path = require('path')
 // app.use - sort of Middleware in express app
 // app.listen
 
+// Here, a built-in middleware is passed to app.use() method
 app.use(express.static('./public')) //loading static files and middlewares in Express
 
 app.get('/', (req, res) => {

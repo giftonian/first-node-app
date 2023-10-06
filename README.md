@@ -47,6 +47,8 @@
 ### Express
 - Express is built on top of Node.js, specifically on `http` module
 - loading static files in Express `app.use(express.static('./public'))`
+- **Middewares** are functions that are executed during request. They have access on request and response object.
+- **Morgan** An http request logger package of express
 
 ## Resources
 - https://nodejs.dev/en/
